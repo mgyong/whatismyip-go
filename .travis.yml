@@ -10,5 +10,5 @@ before_install:
 
 script:
   - curl 127.0.0.1:8000
-  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
-  - docker push ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
+  #- echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  #- docker push ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
