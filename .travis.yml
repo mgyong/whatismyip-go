@@ -11,11 +11,9 @@ before_install:
   - curl -L https://github.com/docker/compose/releases/download/${DOCKER_COMPOSE_VERSION}/docker-compose-`uname -s`-`uname -m` > docker-compose
   - chmod +x docker-compose
   - sudo mv docker-compose /usr/local/bin
-
-
-- docker build --no-cache -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
-- docker run ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} /go/src/github.com/kainlite/whatismyip-go/whatismyip-go.test
-- docker run -d -p 127.0.0.1:8000:8000 ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
+  - docker build --no-cache -t ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} .
+  - docker run ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT} /go/src/github.com/kainlite/whatismyip-go/whatismyip-go.test
+  - docker run -d -p 127.0.0.1:8000:8000 ${TRAVIS_REPO_SLUG}:${TRAVIS_COMMIT}
 
 script:
   - curl 127.0.0.1:8000
